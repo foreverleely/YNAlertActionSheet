@@ -51,6 +51,7 @@
         
         self.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
         
+        _isCorner = YES;
         _actionsheetStyle = sheetStyle;
         _sheetTitle = title;
         _cancleTitle = cancleBtnTitle;
@@ -71,11 +72,11 @@
     [keyWindow addSubview:self];
     
     [UIView animateWithDuration:SHOWTIME animations:^{
-        self.sheetTable.frame = CGRectMake(0, ScreenHeight - self->_tableHeight, ScreenWidth, self->_tableHeight);
+        self.sheetTable.frame = CGRectMake((ScreenWidth - self->_tableWidth)/2, ScreenHeight - self->_tableHeight, self->_tableWidth, self->_tableHeight);
     }];
 }
 
-- (void)setupView{
+- (void)setupView {
     
     if (_cellCount == 0) {
         _cellCount = _iconArr.count;
@@ -87,19 +88,20 @@
     _cellHeight = (_subTitleHeight)?_subTitleHeight:SHEETHEIGHT;
     _titleHeight = (_titleHeight)?_titleHeight:TITLEHEIGHT;
     _cancleHeight = (_cancleHeight)?_cancleHeight:CANCLEHEIGHT;
+    _tableWidth = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? ((_tableWidth > 0)?_tableWidth:600) : ScreenWidth;
     _tableHeight = (_sheetTitle.length == 0)?(_cellCount*_cellHeight + _cancleHeight + SECTIONHEIGHT):((_cellCount)*_cellHeight + _titleHeight + _cancleHeight + SECTIONHEIGHT*2);
     
     if (_sheetTitle.length != 0) {
-        _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, _titleHeight)];
-        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, _titleHeight)];
+        _headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _tableWidth, _titleHeight)];
+        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, _tableWidth, _titleHeight)];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
         _titleLabel.backgroundColor = [UIColor whiteColor];
         _titleLabel.text = _sheetTitle;
         [_headerView addSubview:_titleLabel];
     }
-    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, _cancleHeight)];
+    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _tableWidth, _cancleHeight)];
     _cancleBtn = [[UIButton alloc] init];
-    _cancleBtn.frame = CGRectMake(0, 0, ScreenWidth, _cancleHeight);
+    _cancleBtn.frame = CGRectMake(0, 0, _tableWidth, _cancleHeight);
     [_cancleBtn setTitle:_cancleTitle forState:(UIControlStateNormal)];
     [_cancleBtn setTitleColor:[UIColor blackColor] forState:(UIControlStateNormal)];
     _cancleBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
@@ -108,7 +110,7 @@
     [footerView addSubview:_cancleBtn];
     
     self.sheetTable = [[UITableView alloc] init];
-    _sheetTable.frame = CGRectMake(0, ScreenHeight, ScreenWidth, _tableHeight);
+    _sheetTable.frame = CGRectMake((ScreenWidth - _tableWidth)/2, ScreenHeight, _tableWidth, _tableHeight);
     _sheetTable.backgroundColor = [UIColor clearColor];
     _sheetTable.separatorStyle = UITableViewCellSeparatorStyleNone;
     _sheetTable.delegate = self;
@@ -157,19 +159,19 @@
     
     switch (_actionsheetStyle) {
         case YNActionSheetDefault:
-            [cell setupYNActionSheetDefaultCellWithTitle:_subTitleArr[indexPath.row] CellHeight:_cellHeight];
+            [cell setupYNActionSheetDefaultCellWithTitle:_subTitleArr[indexPath.row]   cellWidth:_tableWidth cellHeight:_cellHeight];
             break;
         case YNActionSheetIconAndTitle:
         {
             if (_subTitleArr.count == _iconArr.count && _subTitleArr.count == _cellCount) {
                 UIFont *font = _subtitleFont?_subtitleFont:[UIFont systemFontOfSize:17];
-                [cell setupYNActionSheetIconAndTitleWithTitle:_subTitleArr[indexPath.row] titleFont:font icon:_iconArr[indexPath.row] cellHeight:_cellHeight];
+                [cell setupYNActionSheetIconAndTitleWithTitle:_subTitleArr[indexPath.row] titleFont:font icon:_iconArr[indexPath.row] cellWidth:_tableWidth cellHeight:_cellHeight];
             }
         }
             break;
         case YNActionSheetIcon:
             if (_iconArr.count == _cellCount) {
-                [cell setupYNActionSheetIconAndTitleWithIcon:_iconArr[indexPath.row] cellHeight:_cellHeight];
+                [cell setupYNActionSheetIconAndTitleWithIcon:_iconArr[indexPath.row] cellWidth:_tableWidth cellHeight:_cellHeight];
             }
             break;
         default:
@@ -227,14 +229,14 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
-    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, SECTIONHEIGHT)];
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _tableWidth, SECTIONHEIGHT)];
     headerView.backgroundColor = [UIColor clearColor];
     return headerView;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     
-    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, SECTIONHEIGHT)];
+    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _tableWidth, SECTIONHEIGHT)];
     footerView.backgroundColor = [UIColor clearColor];
     return footerView;
 }
@@ -273,7 +275,7 @@
     
     [UIView animateWithDuration:DISSMISSTIME animations:^{
         self.alpha = 0;
-        self.sheetTable.frame = CGRectMake(0, ScreenHeight, ScreenWidth, self->_tableHeight);
+        self.sheetTable.frame = CGRectMake((ScreenWidth - self->_tableWidth)/2, ScreenHeight, self->_tableWidth, self->_tableHeight);
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
     }];

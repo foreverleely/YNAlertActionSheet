@@ -26,16 +26,19 @@ typedef NS_ENUM(NSInteger,YNActionSheetStyle){
 
 
 - (void)setupYNActionSheetDefaultCellWithTitle:(NSString *)title
-                                    CellHeight:(CGFloat)height;
+                                     cellWidth:(CGFloat)width
+                                    cellHeight:(CGFloat)height;
 
 
 - (void)setupYNActionSheetIconAndTitleWithTitle:(NSString *)title
                                       titleFont:(UIFont *)font
                                            icon:(UIImage *)icon
+                                      cellWidth:(CGFloat)width
                                      cellHeight:(CGFloat)height;
 
 
 - (void)setupYNActionSheetIconAndTitleWithIcon:(UIImage *)icon
+                                     cellWidth:(CGFloat)width
                                     cellHeight:(CGFloat)height;
 
 @end

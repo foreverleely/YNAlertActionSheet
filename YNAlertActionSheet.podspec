@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "YNAlertActionSheet"
-  spec.version      = "1.0.1"
+  spec.version      = "1.0.3"
   spec.summary      = "A custom alert action sheet."
 
   # This description is used to generate tags and improve search results.
@@ -26,7 +26,7 @@ Pod::Spec.new do |spec|
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   spec.description  = "action sheet with title/icon, or both"
 
-  spec.homepage     = "http://EXAMPLE/YNAlertActionSheet"
+  spec.homepage     = "https://github.com/foreverleely/YNAlertActionSheet"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 

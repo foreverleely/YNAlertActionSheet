@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YNAlertActionSheet : UIView
 
-@property (nonatomic,assign) BOOL isCorner;
+@property (nonatomic,assign) BOOL isCorner; // default YES
 
 @property (nonatomic,strong) UIColor *titleColor;
 
@@ -49,6 +49,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,assign) CGFloat subTitleHeight;
 
 @property (nonatomic,assign) CGFloat cancleHeight;
+
+@property (nonatomic,assign) CGFloat tableWidth;
 
 /**
  if YNActionSheetIconAndTitle or YNActionSheetIcon, set it
