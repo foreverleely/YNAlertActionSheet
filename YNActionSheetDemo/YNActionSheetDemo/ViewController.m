@@ -58,11 +58,7 @@
 //    actionSheet.cancleHeight = 80;
 //    actionSheet.tableWidth = 400;
     
-    // 传入图片数组
-    UIImage *icon1 = [UIImage imageNamed:@"test01"];
-    UIImage *icon2 = [UIImage imageNamed:@"test02"];
-    UIImage *icon3 = [UIImage imageNamed:@"test03"];
-    actionSheet.iconArr = [NSMutableArray arrayWithObjects:icon1,icon2,icon3, nil];
+    actionSheet.iconNameArr = @[@"test01", @"test02", @"test03"];
     
     
     [actionSheet show];

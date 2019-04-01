@@ -23,41 +23,41 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YNAlertActionSheet : UIView
 
-@property (nonatomic,assign) BOOL isCorner; // default YES
+@property (nonatomic, assign) BOOL isCorner; // default YES
 
-@property (nonatomic,strong) UIColor *titleColor;
+@property (nonatomic, strong) UIColor *titleColor;
 
-@property (nonatomic,strong) UIFont *titleFont;
+@property (nonatomic, strong) UIFont *titleFont;
 
-@property (nonatomic,assign) UIColor *subtitleColor;
+@property (nonatomic, assign) UIColor *subtitleColor;
 
-@property (nonatomic,strong) UIFont *subtitleFont;
+@property (nonatomic, strong) UIFont *subtitleFont;
 
 /**
  subtitle part line color
  */
-@property (nonatomic,strong) UIColor *lineColor;
+@property (nonatomic, strong) UIColor *lineColor;
 
-@property (nonatomic,strong) UIColor *subtitleBgColor;
+@property (nonatomic, strong) UIColor *subtitleBgColor;
 
-@property (nonatomic,strong) UIColor *titleBgColor;
+@property (nonatomic, strong) UIColor *titleBgColor;
 
-@property (nonatomic,strong) UIColor *cancleBgColor;
+@property (nonatomic, strong) UIColor *cancleBgColor;
 
-@property (nonatomic,assign) CGFloat titleHeight;
+@property (nonatomic, assign) CGFloat titleHeight;
 
-@property (nonatomic,assign) CGFloat subTitleHeight;
+@property (nonatomic, assign) CGFloat subTitleHeight;
 
-@property (nonatomic,assign) CGFloat cancleHeight;
+@property (nonatomic, assign) CGFloat cancleHeight;
 
-@property (nonatomic,assign) CGFloat tableWidth;
+@property (nonatomic, assign) CGFloat tableWidth;
 
 /**
  if YNActionSheetIconAndTitle or YNActionSheetIcon, set it
  */
-@property (nonatomic,strong) NSMutableArray *iconNameArr;
+@property (nonatomic, strong) NSArray *iconNameArr;
 
-@property (nonatomic,weak) id<YNActionSheetDelegate> delegate;
+@property (nonatomic, weak) id<YNActionSheetDelegate> delegate;
 
 
 

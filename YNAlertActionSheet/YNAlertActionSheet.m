@@ -165,13 +165,13 @@
         {
             if (_subTitleArr.count == _iconNameArr.count && _subTitleArr.count == _cellCount) {
                 UIFont *font = _subtitleFont?_subtitleFont:[UIFont systemFontOfSize:17];
-                [cell setupYNActionSheetIconAndTitleWithTitle:_subTitleArr[indexPath.row] titleFont:font icon:_iconNameArr[indexPath.row] cellWidth:_tableWidth cellHeight:_cellHeight];
+                [cell setupYNActionSheetIconAndTitleWithTitle:_subTitleArr[indexPath.row] titleFont:font iconName:_iconNameArr[indexPath.row] cellWidth:_tableWidth cellHeight:_cellHeight];
             }
         }
             break;
         case YNActionSheetIcon:
             if (_iconNameArr.count == _cellCount) {
-                [cell setupYNActionSheetIconAndTitleWithIcon:_iconNameArr[indexPath.row] cellWidth:_tableWidth cellHeight:_cellHeight];
+                [cell setupYNActionSheetIconAndTitleWithIconName:_iconNameArr[indexPath.row] cellWidth:_tableWidth cellHeight:_cellHeight];
             }
             break;
         default:
