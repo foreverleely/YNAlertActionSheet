@@ -49,6 +49,7 @@
     _titleLab.frame = CGRectMake(0, 0, width, _height);
     _titleLab.textAlignment = NSTextAlignmentCenter;
     _titleLab.text = title;
+    _titleLab.textColor = [UIColor colorWithRed:21/255.0 green:126/255.0 blue:251/255.0 alpha:1.0];
     [self.coverView addSubview:_titleLab];
     
     self.bottomLine = [[UIView alloc] initWithFrame:CGRectMake(0, _height-0.5, width, 0.5)];
@@ -73,12 +74,13 @@
     _titleLab.frame = CGRectMake((width-titleWidth)/2, 0, titleWidth, _height);
     _titleLab.textAlignment = NSTextAlignmentCenter;
     _titleLab.text = title;
+    _titleLab.textColor = [UIColor colorWithRed:21/255.0 green:126/255.0 blue:251/255.0 alpha:1.0];
     [self.coverView addSubview:_titleLab];
     
     CGFloat iconWidth = _height*0.4;
-    self.iconImg = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMinX(_titleLab.frame)-iconWidth-10, _height*0.3, iconWidth, iconWidth)];
-    _iconImg.image = [UIImage imageNamed:iconName];
-    [self.coverView addSubview:_iconImg];
+    UIImageView *iconImgv = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMinX(_titleLab.frame)-iconWidth-10, _height*0.3, iconWidth, iconWidth)];
+    iconImgv.image = [UIImage imageNamed:iconName];
+    [self.coverView addSubview:iconImgv];
     
     self.bottomLine = [[UIView alloc] initWithFrame:CGRectMake(0, _height-0.5, width, 0.5)];
     _bottomLine.backgroundColor = [UIColor grayColor];
@@ -95,9 +97,9 @@
     
     CGFloat iconWidth = _height*0.4;
     
-    self.iconImg = [[UIImageView alloc] initWithFrame:CGRectMake((width-iconWidth)/2, _height*0.3, iconWidth, iconWidth)];
-    _iconImg.image = [UIImage imageNamed:iconName];
-    [self.coverView addSubview:_iconImg];
+    UIImageView *iconImgv = [[UIImageView alloc] initWithFrame:CGRectMake((width-iconWidth)/2, _height*0.3, iconWidth, iconWidth)];
+    iconImgv.image = [UIImage imageNamed:iconName];
+    [self.coverView addSubview:iconImgv];
     
     self.bottomLine = [[UIView alloc] initWithFrame:CGRectMake(0, _height-0.5, width, 0.5)];
     _bottomLine.backgroundColor = [UIColor grayColor];

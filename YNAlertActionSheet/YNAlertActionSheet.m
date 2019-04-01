@@ -23,6 +23,8 @@
 @property (nonatomic, strong) UITableView *sheetTable;
 @property (nonatomic, assign) YNActionSheetStyle actionsheetStyle;
 
+@property (nonatomic, assign) CGFloat tableHeight;
+
 @end
 
 @implementation YNAlertActionSheet
@@ -36,8 +38,6 @@
     
     CGFloat _tableHeight;
     CGFloat _cellHeight;
-    CGFloat _titleHeight;
-    CGFloat _cancleHeight;
     NSInteger _cellCount;
 }
 
@@ -72,7 +72,7 @@
     [keyWindow addSubview:self];
     
     [UIView animateWithDuration:SHOWTIME animations:^{
-        self.sheetTable.frame = CGRectMake((ScreenWidth - self->_tableWidth)/2, ScreenHeight - self->_tableHeight, self->_tableWidth, self->_tableHeight);
+        self.sheetTable.frame = CGRectMake((ScreenWidth - self.tableWidth)/2, ScreenHeight - self.tableHeight, self.tableWidth, self.tableHeight);
     }];
 }
 
@@ -164,7 +164,7 @@
         case YNActionSheetIconAndTitle:
         {
             if (_subTitleArr.count == _iconNameArr.count && _subTitleArr.count == _cellCount) {
-                UIFont *font = _subtitleFont?_subtitleFont:[UIFont systemFontOfSize:17];
+                UIFont *font = _subTitleFont?_subTitleFont:[UIFont systemFontOfSize:17];
                 [cell setupYNActionSheetIconAndTitleWithTitle:_subTitleArr[indexPath.row] titleFont:font iconName:_iconNameArr[indexPath.row] cellWidth:_tableWidth cellHeight:_cellHeight];
             }
         }
@@ -178,14 +178,14 @@
             break;
     }
     
-    if (self.subtitleColor) {
-        cell.titleLab.textColor = self.subtitleColor;
+    if (self.subTitleColor) {
+        cell.titleLab.textColor = self.subTitleColor;
     }
-    if (self.subtitleFont) {
-        cell.titleLab.font = self.subtitleFont;
+    if (self.subTitleFont) {
+        cell.titleLab.font = self.subTitleFont;
     }
-    if (self.subtitleBgColor) {
-        cell.coverView.backgroundColor = self.subtitleBgColor;
+    if (self.subTitleBgColor) {
+        cell.coverView.backgroundColor = self.subTitleBgColor;
     }
     if (self.lineColor) {
         cell.bottomLine.backgroundColor = self.lineColor;
@@ -275,7 +275,7 @@
     
     [UIView animateWithDuration:DISSMISSTIME animations:^{
         self.alpha = 0;
-        self.sheetTable.frame = CGRectMake((ScreenWidth - self->_tableWidth)/2, ScreenHeight, self->_tableWidth, self->_tableHeight);
+        self.sheetTable.frame = CGRectMake((ScreenWidth - self.tableWidth)/2, ScreenHeight, self.tableWidth, self.tableHeight);
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
     }];

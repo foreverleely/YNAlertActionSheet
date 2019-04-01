@@ -29,16 +29,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) UIFont *titleFont;
 
-@property (nonatomic, assign) UIColor *subtitleColor;
-
-@property (nonatomic, strong) UIFont *subtitleFont;
+@property (nonatomic, assign) UIColor *subTitleColor;
+//
+@property (nonatomic, strong) UIFont *subTitleFont;
 
 /**
  subtitle part line color
  */
 @property (nonatomic, strong) UIColor *lineColor;
 
-@property (nonatomic, strong) UIColor *subtitleBgColor;
+@property (nonatomic, strong) UIColor *subTitleBgColor;
 
 @property (nonatomic, strong) UIColor *titleBgColor;
 

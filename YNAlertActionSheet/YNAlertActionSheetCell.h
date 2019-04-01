@@ -20,7 +20,6 @@ typedef NS_ENUM(NSInteger,YNActionSheetStyle){
 @interface YNAlertActionSheetCell : UITableViewCell
 
 @property(nonatomic, strong) UILabel *titleLab;
-@property(nonatomic, strong) UIImageView *iconImg;
 @property(nonatomic, strong) UIView *bottomLine;
 @property(nonatomic, strong) UIView *coverView;
 
