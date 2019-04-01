@@ -38,7 +38,9 @@
     return self;
 }
 
-- (void)setupYNActionSheetDefaultCellWithTitle:(NSString *)title cellWidth:(CGFloat)width cellHeight:(CGFloat)height {
+- (void)setupYNActionSheetDefaultCellWithTitle:(NSString *)title
+                                     cellWidth:(CGFloat)width
+                                    cellHeight:(CGFloat)height {
     
     _height = height;
     _coverView.frame = CGRectMake(0, 0, width, _height);
@@ -54,7 +56,11 @@
     [self.coverView addSubview:_bottomLine];
     
 }
-- (void)setupYNActionSheetIconAndTitleWithTitle:(NSString *)title titleFont:(UIFont *)font icon:(UIImage *)icon cellWidth:(CGFloat)width cellHeight:(CGFloat)height {
+- (void)setupYNActionSheetIconAndTitleWithTitle:(NSString *)title
+                                      titleFont:(UIFont *)font
+                                       iconName:(NSString *)iconName
+                                      cellWidth:(CGFloat)width
+                                     cellHeight:(CGFloat)height {
     
     _height = height;
     _coverView.frame = CGRectMake(0, 0, width, _height);
@@ -71,7 +77,7 @@
     
     CGFloat iconWidth = _height*0.4;
     self.iconImg = [[UIImageView alloc] initWithFrame:CGRectMake(CGRectGetMinX(_titleLab.frame)-iconWidth-10, _height*0.3, iconWidth, iconWidth)];
-    _iconImg.image = icon;
+    _iconImg.image = [UIImage imageNamed:iconName];
     [self.coverView addSubview:_iconImg];
     
     self.bottomLine = [[UIView alloc] initWithFrame:CGRectMake(0, _height-0.5, width, 0.5)];
@@ -80,7 +86,9 @@
     
 }
 
-- (void)setupYNActionSheetIconAndTitleWithIcon:(UIImage *)icon cellWidth:(CGFloat)width cellHeight:(CGFloat)height {
+- (void)setupYNActionSheetIconAndTitleWithIconName:(NSString *)iconName
+                                         cellWidth:(CGFloat)width
+                                        cellHeight:(CGFloat)height {
     
     _height = height;
     _coverView.frame = CGRectMake(0, 0, width, _height);
@@ -88,7 +96,7 @@
     CGFloat iconWidth = _height*0.4;
     
     self.iconImg = [[UIImageView alloc] initWithFrame:CGRectMake((width-iconWidth)/2, _height*0.3, iconWidth, iconWidth)];
-    _iconImg.image = icon;
+    _iconImg.image = [UIImage imageNamed:iconName];
     [self.coverView addSubview:_iconImg];
     
     self.bottomLine = [[UIView alloc] initWithFrame:CGRectMake(0, _height-0.5, width, 0.5)];

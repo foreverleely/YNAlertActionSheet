@@ -55,7 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  if YNActionSheetIconAndTitle or YNActionSheetIcon, set it
  */
-@property (nonatomic,strong) NSMutableArray *iconArr;
+@property (nonatomic,strong) NSMutableArray *iconNameArr;
 
 @property (nonatomic,weak) id<YNActionSheetDelegate> delegate;
 
