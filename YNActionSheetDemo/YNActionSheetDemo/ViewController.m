@@ -53,7 +53,8 @@
 //    actionSheet.titleHeight = 100;
 //    actionSheet.titleBgColor = [UIColor yellowColor];
 //    actionSheet.subtitleBgColor = [UIColor cyanColor];
-    actionSheet.subTitleColor = (UIColor *)[UIColor colorWithRed:21/255.0 green:126/255.0 blue:251/255.0 alpha:1.0];
+    // TODO crash
+//    actionSheet.subTitleColor = (UIColor *)[UIColor colorWithRed:21/255.0 green:126/255.0 blue:251/255.0 alpha:1.0];
 //    actionSheet.subTitleColor = [UIColor blackColor];
 //    actionSheet.cancleBgColor = [UIColor greenColor];
 //    actionSheet.cancleHeight = 80;

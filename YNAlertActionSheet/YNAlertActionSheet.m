@@ -103,7 +103,7 @@
     _cancleBtn = [[UIButton alloc] init];
     _cancleBtn.frame = CGRectMake(0, 0, _tableWidth, _cancleHeight);
     [_cancleBtn setTitle:_cancleTitle forState:(UIControlStateNormal)];
-    [_cancleBtn setTitleColor:[UIColor blackColor] forState:(UIControlStateNormal)];
+    [_cancleBtn setTitleColor:[UIColor colorWithRed:21/255.0 green:126/255.0 blue:251/255.0 alpha:1.0] forState:(UIControlStateNormal)];
     _cancleBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
     [_cancleBtn setBackgroundColor:[UIColor whiteColor]];
     [_cancleBtn addTarget:self action:@selector(actionSheetCancle:) forControlEvents:(UIControlEventTouchUpInside)];
